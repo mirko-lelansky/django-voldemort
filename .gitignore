@@ -1,0 +1,7 @@
+# This is the exclusion file for git.
+
+# Patterns for python
+
+dist/
+django_voldemort.egg-info/
+**/__pycache__/
