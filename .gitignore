@@ -6,3 +6,7 @@ dist/
 django_voldemort.egg-info/
 **/__pycache__/
 **/build/
+**/.cache/
+**/.tox/
+**/htmlcov
+.coverage
