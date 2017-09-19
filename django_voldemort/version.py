@@ -1,1 +1,4 @@
-__version__ = "0.1.0"
+"""
+This module holds only the version of the project.
+"""
+__version__ = "0.1.1"
