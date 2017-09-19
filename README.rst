@@ -1,8 +1,8 @@
-########################
-{Projectname}
-########################
+##################
+django-voldemort
+##################
 
-{Projectdescription}
+This project is a django cache backend for the voldemort cluster.
 
 =================
 Implementation
@@ -20,26 +20,33 @@ To run the test-suite you need pytest and tox.
 Installation
 ---------------
 
-To install this project run first:
-
-    python ./setup.py test
-    
-or:
-
-    tox
-    
-to ensure that all tests are run successfully. Then run:
-
-    python ./setup.py install (--prefix [path])
-    
-to install the project. You can set the installation path by using the prefix
-option.
+To install this project run first :code:`python ./setup.py test` or :code:`tox`
+to run the test suite. Then you can
+run :code:`python ./setup.py install (--prefix [path])` to install the python
+module to you system.
 
 -----------
 Usage
 -----------
 
-{usage instruction}
+Before you can use the django cache extension you must ensure that the library
+is successfully installed. After that you can use the voldemort cache system.
+For that you need to modify your settings.py file and add a CACHE section. The
+following code can be used as an example:
+
+.. code:: python
+
+    CACHES = {
+        'default': {
+            'BACKEND': 'django_voldemort.cache.VoldemortCache',
+            'LOCATION': [('http://localhost:6666', 0)],
+            'OPTIONS': {
+                'store_name': "test"
+            }
+        }
+    }
+
+.
 
 ----
 Api
@@ -47,11 +54,8 @@ Api
 
 The project documentation is in the folder doc. To build the documentation for
 various output formats you can use the Makefile in the doc-folder. If you want
-to build only html then you can use the following command directl:
-
-    python ./setup.py build_sphinx
-    
-.
+to build only html then you can use the following command
+direct :code:`python ./setup.py build_sphinx` .
 
 ==============
 Contributing
